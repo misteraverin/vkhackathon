@@ -12,17 +12,33 @@
             VK.callMethod("resizeWindow", 700, 1200);
            /* VK.callMethod("showSettingsBox", 8192);*/
            $(document).ready(function() {
-               $(':button').click(function(){
-                   var formData = new FormData($('form')[0]);
+               $('#mainForm').on('submit',(function(e) {
+                   e.preventDefault();
+                   var formData = new FormData(this);
+
                    $.ajax({
-                       url: 'http://63ec4b9a.ngrok.io/upload',  //Server script to process data
-                       type: 'POST',
-                       data: "gfdshdjsfds",
-                       dataType: "text",
-                       cache : false,
-                       processData: false
+                       type:'POST',
+                       url: "https://63ec4b9a.ngrok.io/upload",
+                       data:formData,
+                       cache:false,
+                       contentType: false,
+                       processData: false,
+                       success:function(data){
+                           console.log("success");
+                           console.log(data);
+                       },
+                       error: function(data){
+                           console.log("error");
+                           console.log(data);
+                       }
                    });
+               }));
+
+               $("#ImageBrowse").on("change", function() {
+                   $("#mainForm").submit();
                });
+
+
            });
 
 
@@ -84,9 +100,9 @@
             <figure class="icon"></figure>Начать поиск</a>
     </main>
 
-    <form enctype="multipart/form-data" style="padding: 20px;">
-        <input name="file" type="file" />
-        <input type="button" value="Upload" />
+    <form id="mainForm" enctype="multipart/form-data" style="padding: 20px;">
+        <input name="file" type="file" id="ImageBrowse"/>
+        <input type="submit" name="upload" value="Upload" />
     </form>
     <progress></progress>
 </body>

@@ -1,112 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-
-    <link rel="stylesheet" href="main.css">
-    <script type="text/javascript">
-        VK.init(function () {
-            VK.callMethod("resizeWindow", 600, 720);
-            var avatarUserLink;
-
-            if (!localStorage.getItem("start")) {
-                VK.callMethod("showSettingsBox", 8192);
-                console.log("SUCCESS");
-                localStorage.setItem("start", "true");
-            } else {
-                console.log("OOPS");
-            }
-
-            VK.api('users.get', {fields: "photo_50"}, function(data){
-                avatarUserLink = data.response[0].photo_50;
-                $( document ).ready(function() {
-                    console.log(avatarUserLink);
-                    console.log(data.response[0].first_name);
-                    $(".avatar").attr("src", avatarUserLink);
-                });
-
-            });
-
-            $("#download").click(function () {
-                VK.api("wall.post", {
-                    "owner_id": "-133945334",
-                    "message": "Hello!",
-                    "from_group": "1",
-                    "signed": "1"
-                }, function (data) {
-                    console.log();
-                });
-            });
-
-        }, function () {
-            // API initialization failed
-            // Can reload page here
-        }, '5.60');
-    </script>
+    <title>3Bots</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  	<main class="container">
 
+		<header class="container-header">
+            <figure class="logo"></figure>
+            <p class="header-text">
+                <span class="header-text-l">Поиск пропавших котиков</span>
+                <span class="header-text-s">По фотографии, при помощи технологии нейросетей</span>
+            </p>
+        </header>
 
-<div class="wrapper" style="border: 1px solid black;">
-    <div class="found" style="min-height: 150px; padding: 40px;">
-        <img class="header" src="img/header-logo.svg" height="64" width="64">
-        <h2>Поиск пропавших котиков</h2>
-        <p>По фотографии, при помощи технологии нейросетей</p>
+        <section class="step-block step-block-1">
 
-    </div>
-    <div class="city" style="min-height: 250px; padding: 40px;">
-        <div style="float: left;">
-            <h2>Шаг 3. Выбор города</h2>
-            <p>Мы поможем вам найти
-                пропавшего домашнего любимца.</p>
+            <header class="header">
+                <figure class="header-icon"></figure>
+                <h2>Шаг 1. Выбор города</h2>
+            </header>
 
-            <p>Для начала уточним город, в котором
-                будем искать котика:</p>
-        </div>
-        <div style="float: right;">
-            <img src="img/here.png">
-        </div>
-        <div style="height: 100px;">
+            <figure class="picture"></figure>
+            <p class="text">
+            	Мы поможем вам найти пропавшего домашнего любимца.<br><br>
+            	Для начала уточним город, в котором будем искать котика:
+            </p>
+            <p class="dropdown">Санкт-Петербург<span class="icon"></span></p>
+            <span class="label">Определено автоматически</span>
+        </section>
 
-        </div>
-        <p style="border-bottom: 1px solid #ccc; font-size: 1.5em;">
-            Санкт-Петербург
-        </p>
+        <section class="step-block step-block-2">
 
+            <header class="header">
+                <figure class="header-icon"></figure>
+                <h2>Шаг 2. Загрузка фотографии</h2>
+            </header>
+            <figure class="picture"></figure>
+            <p class="text">
+                Выберите самую качественную фотографию, на которой был запечатлён ваш котик.
+                <br> Чем лучше фото – тем выше шанс найти именно вашего питомца.
+            </p>
+            <button class="btn-big">Выбрать фотографию</button>
+            <p class="url">или вы можете <a href="#">вставить URL-ссылку</a></p>
+        </section>
 
-    </div>
-    <div class="choosen" style="min-height: 250px; padding: 40px;">
-        <div style="float: left;">
-            <h2>Шаг 2. Загрузка фотографии</h2>
-            <p>Выберите самую качественную фотографию, на которой<br>
-                был запечатлён ваш котик. <br>Чем лучше фото - тем выше шанс найти именно вашего любимца</p>
-        </div>
-        <div style="float: right;">
-            <img src="img/kittens.png">
-        </div>
-
-        <div>
-            <img class="avatar" src="" alt="avatar">
-        </div>
-        <div style="height: 50px;"></div>
-        <div>
-            <button id="download">
-                Загрузить фотографию
-            </button>
-            <input type="file">
-        </div>
-
-
-    </div>
-    <div class="search" style="">
-        <button>
-            <a href="found.html">Переход</a>
-        </button>
-        <div style="font-size: 1.5em;text-align: center;">Начать поиск</div>
-    </div>
-</div>
+        <a href="/result.html" class="container-search">
+            <figure class="icon"></figure>Начать поиск</a>
+    </main>
 </body>
+
 </html>

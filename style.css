@@ -9,21 +9,17 @@ article,
 figure,
 i,
 header,
-main {
+main,
+body{
   padding: 0;
   margin: 0;
   border: none;
 }
 body {
-  background: #EDEEF0;
+  background: #fff;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-.container {
-  background: #fff;
-  box-sizing: border-box;
-  height: auto;
-  width: 650px;
-}
+
 h2 {
   color: #656565;
   display: inline-block;

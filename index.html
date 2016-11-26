@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
         VK.init(function () {
-            VK.callMethod("resizeWindow", 700, 1200);
+            VK.callMethod("resizeWindow", 700, document.getElementById('body').clientHeight);
            /* VK.callMethod("showSettingsBox", 8192);*/
            $(document).ready(function() {
                $('#mainForm').on('submit',(function(e) {

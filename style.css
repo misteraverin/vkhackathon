@@ -15,9 +15,7 @@ main {
   border: none;
 }
 body {
-  background: #EDEEF0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  padding: 70px;
 }
 .container {
   background: #fff;
@@ -25,7 +23,6 @@ body {
   box-shadow: 0 0 0 1px #E3E4E8;
   box-sizing: border-box;
   height: auto;
-  margin: 0 auto;
   width: 650px;
 }
 h2 {

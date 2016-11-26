@@ -38,4 +38,30 @@
         letter-spacing: .2pt;
         margin-top: 7px;
     }
+
+    .step-block-1 .picture {
+        background: url('assets/mobile/step1-pic.svg') no-repeat;
+        display: block;
+        float: right;
+        height: 189px;
+        width: 361px;
+    }
+
+    .step-block-2 .picture {
+        background: url('assets/mobile/step2-pic.svg') no-repeat;
+        display: block;
+        float: right;
+        height: 124px;
+        margin: 15px 15px 0 0;
+        width: 270px;
+    }
+
+    .step-block-2 .text {
+        color: #2B2F33;
+        display: block;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 25px;
+        width: 312px;
+    }
 }

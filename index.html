@@ -50,7 +50,9 @@
 
                 $("#startSearch").click(function () {
                     $("#mainForm").submit();
-                    $(".page1").css("display", "none");
+                    $("#page1").css("display", "none");
+                    VK.callMethod("resizeWindow", 650, 2020);
+                    $("#page2").css("display", "block");
                 });
 
             });
@@ -65,7 +67,7 @@
 </head>
 
 <body>
-<div class="page1">
+<div id="page1">
     <main class="container">
 
         <header class="container-header">
@@ -118,6 +120,7 @@
     </form>
 </div>
 
+<div id="page2" style="display: none;">
 <main class="container">
 
     <header class="container-header">
@@ -205,6 +208,7 @@
         });
     </script>
 </main>
+</div>
 </body>
 
 </html>

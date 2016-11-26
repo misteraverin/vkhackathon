@@ -12,41 +12,47 @@
     <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
         VK.init(function () {
-            VK.callMethod("resizeWindow", 700, document.getElementById('body').clientHeight);
-           /* VK.callMethod("showSettingsBox", 8192);*/
-           $(document).ready(function() {
-               $('#mainForm').on('submit',(function(e) {
-                   e.preventDefault();
-                   var formData = new FormData(this);
+            /*document.getElementById('body').clientHeight*/
+            VK.callMethod("resizeWindow", 700, 870);
+            /* VK.callMethod("showSettingsBox", 8192);*/
+            $(document).ready(function () {
+                $('#mainForm').on('submit', (function (e) {
+                    e.preventDefault();
+                    var formData = new FormData(this);
 
-                   $.ajax({
-                       type:'POST',
-                       url: "https://vkhackathon.sevazhidkov.me/network/upload",
-                       data:formData,
-                       cache:false,
-                       contentType: false,
-                       processData: false,
-                       success:function(data){
-                           console.log("success");
-                           console.log(data);
-                       },
-                       error: function(data){
-                           console.log("error");
-                           console.log(data);
-                       }
-                   });
-               }));
+                    $.ajax({
+                        type: 'POST',
+                        url: "https://vkhackathon.sevazhidkov.me/network/upload",
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+                            console.log("success");
+                            console.log(data);
+                        },
+                        error: function (data) {
+                            console.log("error");
+                            console.log(data);
+                        }
+                    });
+                }));
 
-               $("#ImageBrowse").on("change", function() {
-                   $("#mainForm").submit();
-               });
+                $("#ImageBrowse").on("change", function () {
 
+                });
 
-           });
+                $("#choosePhoto").click(function () {
+                    console.log("sucess");
+                    $("#ImageBrowse").click();
+                });
 
+                $("#startSearch").click(function () {
+                    $("#mainForm").submit();
+                    $(".page1").css("display", "none");
+                });
 
-
-
+            });
 
 
         }, function () {
@@ -58,9 +64,10 @@
 </head>
 
 <body>
-  	<main class="container">
+<div class="page1">
+    <main class="container">
 
-		<header class="container-header">
+        <header class="container-header">
             <figure class="logo"></figure>
             <p class="header-text">
                 <span class="header-text-l">Поиск пропавших котиков</span>
@@ -77,8 +84,8 @@
 
             <figure class="picture"></figure>
             <p class="text">
-            	Мы поможем вам найти пропавшего домашнего любимца.<br><br>
-            	Для начала уточним город, в котором будем искать котика:
+                Мы поможем вам найти пропавшего домашнего любимца.<br><br>
+                Для начала уточним город, в котором будем искать котика:
             </p>
             <p class="dropdown">Санкт-Петербург<span class="icon"></span></p>
             <span class="label">Определено автоматически</span>
@@ -95,18 +102,20 @@
                 Выберите самую качественную фотографию, на которой был запечатлён ваш котик.
                 <br> Чем лучше фото – тем выше шанс найти именно вашего питомца.
             </p>
-            <button class="btn-big">Выбрать фотографию</button>
+            <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
             <p class="url">или вы можете <a href="#">вставить URL-ссылку</a></p>
         </section>
 
-        <a href="/result.html" class="btn-search">
-            <figure class="icon"></figure>Начать поиск</a>
+        <a href="#" id="startSearch" class="btn-search">
+            <figure class="icon"></figure>
+            Начать поиск</a>
     </main>
 
     <form style="display: none;" id="mainForm" enctype="multipart/form-data" style="padding: 20px;">
         <input name="file" type="file" id="ImageBrowse"/>
-        <input type="submit" name="upload" value="Upload" />
+        <input type="submit" name="upload" value="Upload"/>
     </form>
+</div>
 </body>
 
 </html>

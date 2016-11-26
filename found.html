@@ -55,9 +55,10 @@
                 VK.api('photos.getWallUploadServer', {group_id: "133945334"}, function (data) {
                     urlForUpload = data.response.upload_url;
                 });
-                var xhr = new XMLHttpRequest();
+                console.log(urlForUpload);
+
                 var currentURL = urlForUpload;
-                xhr.open("POST", currentURL, true);
+                var xhr = createCORSRequest("POST", currentURL);
                 xhr.setRequestHeader('Content-type', 'multipart/form-data; charset=utf-8');
                 xhr.send();
                 xhr.onreadystatechange = processRequest;

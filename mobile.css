@@ -5,7 +5,7 @@
         box-shadow: 0 0 0 1px #E3E4E8;
         box-sizing: border-box;
         height: auto;
-        width: 375px;
+        width: 100%;
     }
 
     .logo {

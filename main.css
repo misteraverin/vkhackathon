@@ -25,7 +25,6 @@ a:hover {
 }
 
 .wrapper{
-    margin: 0 auto;
     width: 720px;
     min-width: 320px;
     border: 1px solid black;

@@ -1,0 +1,41 @@
+@media only screen and (max-width: 500px) {
+    .container {
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px #E3E4E8;
+        box-sizing: border-box;
+        height: auto;
+        width: 500px;
+    }
+
+    .logo {
+        background: url('assets/mobile/header-logo.svg') no-repeat;
+        display: inline-block;
+        height: 45px;
+        vertical-align: middle;
+        width: 45px;
+    }
+
+    .header-text {
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+
+    .container-header {
+        border-bottom: 1px solid #E7E8EC;
+        padding: 20px;
+    }
+
+    .header-text-l {
+        color: #2B2F33;
+        font-size: 15px;
+        letter-spacing: .4pt;
+    }
+    .header-text-s {
+        color: #656565;
+        font-size: 10px;
+        letter-spacing: .2pt;
+        margin-top: 7px;
+    }
+}

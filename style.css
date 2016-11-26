@@ -29,7 +29,7 @@ h2 {
   letter-spacing: .4pt;
 }
 .logo {
-  background: url('/assets/header-logo.svg') no-repeat;
+  background: url('assets/header-logo.svg') no-repeat;
   display: inline-block;
   height: 64px;
   vertical-align: middle;
@@ -55,7 +55,7 @@ h2 {
   width: 100%;
 }
 .btn-search .icon {
-  background: url('/assets/search.svg') no-repeat 0 1px;
+  background: url('assets/search.svg') no-repeat 0 1px;
   display: inline-block;
   height: 20px;
   margin-right: 10px;
@@ -107,14 +107,14 @@ h2 {
   vertical-align: middle;
 }
 .step-block-1 .header-icon {
-  background: url('/assets/step1-icon.svg') no-repeat;
+  background: url('assets/step1-icon.svg') no-repeat;
   display: inline-block;
   height: 20px;
   vertical-align: middle;
   width: 20px;
 }
 .step-block-1 .picture {
-  background: url('/assets/step1-pic.svg') no-repeat;
+  background: url('assets/step1-pic.svg') no-repeat;
   display: block;
   float: right;
   height: 251px;
@@ -150,7 +150,7 @@ h2 {
   margin-top: 15px;
 }
 .step-block-1 .icon {
-  background: url('/assets/dropdown.svg') no-repeat;
+  background: url('assets/dropdown.svg') no-repeat;
   display: inline-block;
   float: right;
   height: 6px;
@@ -158,14 +158,14 @@ h2 {
   width: 12px;
 }
 .step-block-2 .header-icon {
-  background: url('/assets/step2-icon.svg') no-repeat 0 1px;
+  background: url('assets/step2-icon.svg') no-repeat 0 1px;
   display: inline-block;
   height: 20px;
   vertical-align: middle;
   width: 20px;
 }
 .step-block-2 .picture {
-  background: url('/assets/step2-pic.svg') no-repeat;
+  background: url('assets/step2-pic.svg') no-repeat;
   display: block;
   float: right;
   height: 94px;

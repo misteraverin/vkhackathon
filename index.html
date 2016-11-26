@@ -5,15 +5,31 @@
     <meta charset="UTF-8">
     <title>3Bots</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
         VK.init(function () {
-            VK.callMethod("resizeWindow", 600, 720);
-            VK.callMethod("showSettingsBox", 8192);
-            $("#download").click(function () {
-                VK.api("wall.post", {"owner_id":"-133945334","message": "Hello!", "from_group":"1", "signed":"1"}, function (data) {
-                    console.log(data);
-                });
-            });
+            VK.callMethod("resizeWindow", 700, 1200);
+           /* VK.callMethod("showSettingsBox", 8192);*/
+           $(document).ready(function() {
+               $(':button').click(function(){
+                   var formData = new FormData($('form')[0]);
+                   $.ajax({
+                       url: 'http://63ec4b9a.ngrok.io/upload',  //Server script to process data
+                       type: 'POST',
+                       data: "gfdshdjsfds",
+                       dataType: "text",
+                       cache : false,
+                       processData: false
+                   });
+               });
+           });
+
+
+
+
+
+
         }, function () {
             // API initialization failed
             // Can reload page here
@@ -67,6 +83,12 @@
         <a href="/result.html" class="container-search">
             <figure class="icon"></figure>Начать поиск</a>
     </main>
+
+    <form enctype="multipart/form-data" style="padding: 20px;">
+        <input name="file" type="file" />
+        <input type="button" value="Upload" />
+    </form>
+    <progress></progress>
 </body>
 
 </html>

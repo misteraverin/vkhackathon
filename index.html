@@ -61,9 +61,10 @@
                         e.preventDefault();
                         var formData;
                         if ($(".url-field-text").css("display") == "inline-block") {
-                            var text_from_input = $(".url-field-text").text();
-                            console.log($(".url-field-text").text());
-                            formData = {url: text_from_input};
+                            var text_from_input = $(".url-field-text").val();
+                            console.log($(".url-field-text").val());
+                            formData = new FormData();
+                            formData.append("url", text_from_input);
                         } else {
                             formData = new FormData(this);
                         }
@@ -93,6 +94,8 @@
                                     console.log("https://vk.com/wall" + owner_id + "_" + post_id);
                                     requested_posts.push(owner_id + "_" + post_id);
                                 }
+                                console.log(requested_posts);
+                                console.log(links["elems"].length);
                                 var i = 0;
                                 $(".uploadPhoto").each(function () {
                                     $(this).attr("src", urlLinks[i]);
@@ -109,16 +112,19 @@
                                 VK.api('wall.getById', {posts: requested_posts.join(",")}, function (request) {
                                     for (var i = 0; i < request.response.length; i++) {
                                         if (request.response[i] === undefined)
-                                            dates.push(0);
+                                            dates.push(1480174794);
                                         else {
                                             var text_date = request.response[i].date;
-                                            console.log(text_date);
+
                                             dates.push(timeConverter(text_date));
                                         }
                                     }
                                     var j = 0;
                                     $(".date").each(function () {
-                                        $(this).text(dates[j]);
+                                        if(j >= dates.length)
+                                            $(this).text(timeConverter(1480175188));
+                                        else
+                                            $(this).text(dates[j]);
                                         j = j + 1;
                                     });
                                 });

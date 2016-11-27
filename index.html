@@ -184,6 +184,21 @@
         ;
     </script>
 
+    <script>
+        $(document).ready(function () {
+            $('#insertLink').on("click", function () {
+                $(".attach-photo").css("display", "none");
+                $(".url-field").css("display", "inline-block");
+                $(".url-field-text").css("display", "inline-block");
+            });
+            $('.url-cancel').on("click", function () {
+                $(".attach-photo").css("display", "inline");
+                $(".url-field").css("display", "none");
+                $(".url-field-text").css("display", "none");
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -227,25 +242,14 @@
             </p>
             <section class="attach-photo">
                 <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
-                <p class="url">или вы можете <a href="#">вставить URL-ссылку</a></p>
+                <p class="url">или вы можете <a href="#" id="insertLink">вставить URL-ссылку</a></p>
                 <p class="photo-choosen">Вы выбрали файл: <span id="uploadedPhoto">6hsQGjj0.jpg</span></p>
             </section>
-
             <p class="url-field">Вставьте URL-ссылку<span class="url-cancel">Отменить</span></p>
+            <input class="url-field-text" type="text">
         </section>
 
-        <script>
-            $('.url-change').click(function () {
-                $('.attach-photo').css("display", "none");
-                $('.url-field').css("display", "inline-block");
-                return false;
-            });
-            $('.url-cancel').click(function () {
-                $('.url-field').css("display", "none");
-                $('.attach-photo').css("display", "block");
-                return false;
-            });
-        </script>
+
 
         <section class="error" style="display: none;">
             <figure class="icon"></figure>

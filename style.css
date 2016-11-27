@@ -228,6 +228,15 @@ h2 {
   padding-bottom: 20px;
   width: 580px;
 }
+
+.url-field-text{
+  color: #656565;
+  display: none;
+  font-size: 14px;
+  padding-bottom: 10px;
+  width: 580px;
+}
+
 .step-block-2 .url-cancel {
   color: #5879A6;
   float: right;

@@ -145,7 +145,7 @@
                 });
 
                 $("#submitPost").click(function () {
-                    var message_text =  $("#textarea").text();
+                    var message_text =  $(".textarea").text();
                     var photo_query = "photo" + globalPhotoOwner + "_" + globalMediaId;
                     VK.api("wall.post", {
                         "owner_id": "-133945334",

@@ -92,6 +92,12 @@ h2 {
   font-size: 17px;
   margin: 35px 0 35px 35px;
 }
+.column-header span {
+		color: #5879A6;
+		display: inline-block;
+		font-size: 20px;
+		margin-top: 15px;
+	}
 .items {
   border-bottom: 1px solid #E7E8EC;
   font-size: 0;
@@ -147,6 +153,8 @@ h2 {
       -ms-transform: translateX(3px);
           transform: translateX(3px);
 }
+
+/*
 .post {
   background: #FAFBFC;
   border-bottom-left-radius: 2px;
@@ -216,3 +224,4 @@ h2 {
   margin-left: 20px;
   vertical-align: middle;
 }
+*/

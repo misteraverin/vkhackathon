@@ -33,13 +33,14 @@ h2 {
 
 .logo {
     background: url('assets/header-logo_mobile.svg') no-repeat;
+    display: inline-block;
     height: 45px;
     width: 45px;
 }
 
 .container-header {
     border-bottom: 1px solid #E7E8EC;
-    padding: 20px;
+    padding: 20px 0 20px 20px;
     display: block;
 }
 
@@ -85,13 +86,9 @@ h2 {
     cursor: pointer;
 }
 
-.header-text {
-    float: left;
-}
-
 .header-text-l,
 .header-text-s {
-    display: block;
+    display: inline-block;
 }
 
 .header-text-l {

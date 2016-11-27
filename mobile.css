@@ -31,7 +31,7 @@ h2 {
     letter-spacing: .4pt;
 }
 
-.logo {
+.header-logo {
     background: url('assets/header-logo_mobile.svg') no-repeat;
     display: inline-block;
     height: 45px;

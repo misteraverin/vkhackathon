@@ -302,12 +302,12 @@ h2 {
 
 /* Выдача */
 
-.column-header span {
-		color: #5879A6;
-		display: inline-block;
-		font-size: 20px;
-		margin-top: 15px;
-	}
+.column-header {
+	color: #5879A6;
+	display: inline-block;
+	font-size: 20px;
+	margin-top: 15px;
+}
 .items {
   border-bottom: 1px solid #E7E8EC;
   font-size: 0;
@@ -367,8 +367,8 @@ h2 {
 }
 
 .btn-back {
-  float: right;
-  margin: 25px 35px 0 0;
+  float: left;
+  margin: 20px 0 0 20px;
   line-height: 40px;
   text-decoration: none;
   vertical-align: middle;

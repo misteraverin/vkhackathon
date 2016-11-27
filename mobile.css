@@ -299,3 +299,43 @@ h2 {
     font-size: 14px;
     vertical-align: middle;
 }
+
+/* Выдача */
+
+.column-header span {
+		color: #5879A6;
+		display: inline-block;
+		font-size: 20px;
+		margin-top: 15px;
+	}
+.items {
+  border-bottom: 1px solid #E7E8EC;
+  font-size: 0;
+  padding: 0 0 0 35px;
+}
+.item {
+  display: inline-block;
+  margin: 0 20px 35px 0;
+  width: 280px;
+}
+.item:nth-child(even) {
+  margin-right: 0;
+}
+.item .photo {
+  background: #E7E8EC;
+  border-radius: 2px;
+  display: inline-block;
+  height: 280px;
+  width: 280px;
+}
+.item .date {
+  color: #656565;
+  display: inline-block;
+  font-size: 15px;
+  margin-top: 20px;
+}
+.item a {
+  color: #5879A6;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 15px;

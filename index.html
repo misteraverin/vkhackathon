@@ -335,7 +335,9 @@
             $(document).ready(function(){
                 $('.textarea').click(function () {
                     $('.placeholder').hide();
-                    $(this).onfocus();
+                });
+                $('.placeholder').click(function () {
+                    $('.placeholder').hide();
                 });
                 $('body').click(function () {
                     $('.placeholder').show();

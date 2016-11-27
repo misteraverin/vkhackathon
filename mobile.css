@@ -40,7 +40,7 @@ h2 {
 
 .container-header {
     border-bottom: 1px solid #E7E8EC;
-    padding: 35px;
+    padding: 20px;
     height: 100px;
     display: table;
 }
@@ -88,7 +88,7 @@ h2 {
 }
 
 .header-text {
-    float: right;
+    float: left;
     margin-left: 0px;
 }
 
@@ -99,7 +99,7 @@ h2 {
 
 .header-text-l {
     color: #2B2F33;
-    font-size: 18px;
+    font-size: 17px;
     letter-spacing: .4pt;
 }
 
@@ -131,7 +131,7 @@ h2 {
 .step-block-1 .picture {
     background: url('assets/step1-pic_mobile.svg') no-repeat;
     display: block;
-    margin: 20px 0 35px 35px;
+    margin: 10px 35px 35px 35px;
     clear: both;
     height: 189px;
     width: 362px;

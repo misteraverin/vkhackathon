@@ -41,7 +41,7 @@ h2 {
 .container-header {
     border-bottom: 1px solid #E7E8EC;
     padding: 20px;
-    height: 150px;
+    height: 200px;
     display: block;
 }
 
@@ -97,7 +97,7 @@ h2 {
 }
 
 .header-text-l {
-    color: #2B2F33;
+    color: red;
     font-size: 17px;
     letter-spacing: .4pt;
 }

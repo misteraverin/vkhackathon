@@ -332,13 +332,14 @@
             </article>
         </section>
         <script type="text/javascript">
-            $('.textarea').click(function() {
-                $('.placeholder').hide();
-                return false;
-                $('.textarea').focus();
-            });
-            $('body').click(function() {
-                $('.placeholder').show();
+            $(document).ready(function(){
+                $('.textarea').click(function () {
+                    $('.placeholder').hide();
+                    $(this).onfocus();
+                });
+                $('body').click(function () {
+                    $('.placeholder').show();
+                });
             });
         </script>
     </main>

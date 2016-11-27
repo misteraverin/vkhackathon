@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+<div id="page1" style="width: 375px;">
+    <main class="container">
+
+        <header class="container-header">
+            <figure class="logo"></figure>
+            <p class="header-text">
+                <span class="header-text-l">Поиск пропавших котиков</span>
+                <span class="header-text-s">По фотографии, при помощи технологии нейросетей</span>
+            </p>
+        </header>
+
+        <section class="step-block step-block-1">
+
+            <header class="header">
+                <figure class="header-icon"></figure>
+                <h2>Шаг 1. Выбор города</h2>
+            </header>
+
+            <figure class="picture"></figure>
+            <p class="text">
+                Мы поможем вам найти пропавшего домашнего любимца.<br><br>
+                Для начала уточним город, в котором будем искать котика:
+            </p>
+            <p class="dropdown">Санкт-Петербург</p>
+            <span class="label">Пока доступен только один город</span>
+        </section>
+
+        <section class="step-block step-block-2">
+
+            <header class="header">
+                <figure class="header-icon"></figure>
+                <h2>Шаг 2. Загрузка фотографии</h2>
+            </header>
+            <figure class="picture"></figure>
+            <p class="text">
+                Выберите самую качественную фотографию, на которой был запечатлён ваш котик.
+                <br> Чем лучше фото – тем выше шанс найти именно вашего питомца.
+            </p>
+            <section class="attach-photo">
+                <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
+                <p class="url">или вы можете <a href="#" id="insertLink">вставить URL-ссылку</a></p>
+                <p class="photo-choosen">Вы выбрали файл: <span id="uploadedPhoto"></span></p>
+            </section>
+            <p class="url-field">Вставьте URL-ссылку<span class="url-cancel">Отменить</span></p>
+            <input class="url-field-text" type="text">
+        </section>
+
+
+        <section class="error" style="display: none;">
+            <figure class="icon"></figure>
+            <span>Ошибка! Вы не выбрали фотографию</span>
+        </section>
+
+        <a href="#" id="startSearch" class="btn-search">
+            <figure class="icon"></figure>
+            Начать поиск</a>
+    </main>
+
+    <form style="display: none;" id="mainForm" enctype="multipart/form-data" style="padding: 20px;">
+        <input name="file" type="file" id="ImageBrowse"/>
+        <input type="submit" name="upload" value="Upload"/>
+    </form>
+</div>
+</body>
+</html>

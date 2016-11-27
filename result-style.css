@@ -162,7 +162,7 @@ h2 {
   width: 190px;
 }
 .btn-back .icon {
-  background: url("/assets/back.svg") no-repeat 0 1px;
+  background: url(assets/back.svg) no-repeat 0 1px;
   display: inline-block;
   height: 16px;
   margin-right: 10px;

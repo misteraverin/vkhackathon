@@ -202,7 +202,7 @@ h2 {
     font-size: 17px;
     line-height: 27px;
     margin-top: 25px;
-    width: 343px;
+    width: 310px;
 }
 
 .step-block-2 .btn-big {
@@ -342,6 +342,29 @@ h2 {
 }
 
 /* Back */
+
+.btn-medium {
+  background: #729BD3;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-family: 'SFUIText Medium', sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: .3pt;
+  outline: none;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+.btn-medium:hover {
+  background: #7ea3d7;
+  cursor: pointer;
+}
+.btn-medium:active {
+  background: #6693cf;
+  cursor: pointer;
+}
 
 .btn-back {
   float: right;

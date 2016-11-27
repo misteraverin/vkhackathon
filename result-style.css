@@ -11,7 +11,8 @@ i,
 header,
 main,
 body,
-html {
+html,
+iframe, {
   padding: 0;
   margin: 0;
   border: none;

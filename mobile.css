@@ -303,10 +303,16 @@ h2 {
 /* Выдача */
 
 .column-header {
-	color: #2B2F33;
-	display: inline-block;
-	font-size: 20px;
-	margin: 25px 0 35px 35px;
+   color: #2B2F33;
+   display: inline-block;
+   font-size: 20px;
+   margin: 25px 0 35px 35px;
+}
+.column-header span {
+	display: block;
+	color: #5879A6;
+	font-size: 18px;
+	text-decoration: none;
 }
 .items {
   border-bottom: 1px solid #E7E8EC;

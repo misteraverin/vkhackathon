@@ -11,12 +11,31 @@
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
     <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+
     <script type="text/javascript">
         VK.init(function () {
             /*document.getElementById('body').clientHeight*/
             VK.callMethod("resizeWindow", 650, 873);
             /* VK.callMethod("showSettingsBox", 8192);*/
             $(document).ready(function () {
+                function scaleSize(maxW, maxH, currW, currH) {
+
+                    var ratio = currH / currW;
+
+                    if (currW >= maxW && ratio <= 1) {
+                        currW = maxW;
+                        currH = currW * ratio;
+                    } else if (currH >= maxH) {
+                        currH = maxH;
+                        currW = currH / ratio;
+                    }
+
+                    return [currW, currH];
+                }
+
+
+
+
                 $('#mainForm').on('submit', (function (e) {
                     e.preventDefault();
                     var formData = new FormData(this);
@@ -31,6 +50,27 @@
                         success: function (data) {
                             console.log("success");
                             console.log(data);
+                            var links = JSON.parse(data);
+                            var urlLinks = [];
+                            var urlPosts = [];
+                            for (var i = 0; i < links["elems"].length; i++) {
+                                urlLinks.push("https://api.rethumb.com/v1/square/280/" + links["elems"][i].url);
+                                var post_id =  links["elems"][i].post_id;
+                                var owner_id = links["elems"][i].owner_id;
+                                urlPosts.push("https://vk.com/wall" + owner_id + "_" + post_id);
+                            }
+                            var i = 0;
+                            $(".uploadPhoto").each(function(){
+                                $(this).attr("src", urlLinks[i]);
+                                i = i + 1;
+                                console.log(i);
+                            });
+                            var i = 0;
+                            $(".postLink").each(function(){
+                                $(this).attr("src", urlPosts[i]);
+                                i = i + 1;
+                            });
+
                         },
                         error: function (data) {
                             console.log("error");
@@ -48,12 +88,17 @@
                     $("#ImageBrowse").click();
                 });
 
+
+
                 $("#startSearch").click(function () {
                     $("#mainForm").submit();
                     $("#page1").css("display", "none");
+
                     VK.callMethod("resizeWindow", 650, 2020);
                     $("#page2").css("display", "block");
                 });
+
+
 
             });
 
@@ -121,93 +166,125 @@
 </div>
 
 <div id="page2" style="display: none;">
-<main class="container">
+    <main class="container">
 
-    <header class="container-header">
-        <figure class="header-logo"></figure>
-        <p class="header-text">
-            <span class="header-text-l">Поиск пропавших котиков</span>
-            <span class="header-text-s">По фотографии, при помощи технологии нейросетей</span>
-        </p>
-    </header>
+        <header class="container-header">
+            <figure class="header-logo"></figure>
+            <p class="header-text">
+                <span class="header-text-l">Поиск пропавших котиков</span>
+                <span class="header-text-s">По фотографии, при помощи технологии нейросетей</span>
+            </p>
+        </header>
 
-    <button class="btn-medium btn-load-new">Загрузить другое фото</button>
-    <span class="column-header">Вот, что нам удалось найти:</span>
+        <button class="btn-medium btn-load-new">Загрузить другое фото</button>
+        <span class="column-header">Вот, что нам удалось найти:</span>
 
-    <section class="items">
+        <section class="items">
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
 
-        <article class="item">
-            <figure class="photo"></figure>
-            <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
-            <a href="#">Перейти к записи<figure class="icon"></figure></a>
-        </article>
-    </section>
+            <article class="item">
+                <figure class="photo">
+                    <img class="uploadPhoto" src="">
+                </figure>
+                <span class="date">Размещено: 26 ноября 2016 в 20:51</span>
+                <a class="postLink" href="#">Перейти к записи
+                    <figure class="icon"></figure>
+                </a>
+            </article>
+        </section>
 
-    <span class="column-header">Не нашли своего питомца? Давайте создадим пост:</span>
+        <span class="column-header">Не нашли своего питомца? Давайте создадим пост:</span>
 
-    <section class="post">
-        <arctile class="field">
-            <div class="textarea" contenteditable="true"></div>
-            <div class="placeholder">Напишите о пропавшем котике...</div>
-        </arctile>
+        <section class="post">
+            <arctile class="field">
+                <div class="textarea" contenteditable="true"></div>
+                <div class="placeholder">Напишите о пропавшем котике...</div>
+            </arctile>
 
-        <button class="btn-medium suggest-post">Предложить пост</button>
-        <figure class="pet-photo"></figure>
-        <span class="text">Фотография, которую вы загрузили,<br>прикладывается к посту.</span>
-    </section>
-    <script type="text/javascript">
-        $('.textarea').click(function() {
-            $('.placeholder').hide();
-            return false;
-            $('.textarea').focus();
-        });
-        $('body').click(function() {
-            $('.placeholder').show();
-        });
-    </script>
-</main>
+            <button class="btn-medium suggest-post">Предложить пост</button>
+            <figure class="pet-photo"></figure>
+            <span class="text">Фотография, которую вы загрузили,<br>прикладывается к посту.</span>
+        </section>
+        <script type="text/javascript">
+            $('.textarea').click(function () {
+                $('.placeholder').hide();
+                return false;
+                $('.textarea').focus();
+            });
+            $('body').click(function () {
+                $('.placeholder').show();
+            });
+        </script>
+    </main>
 </div>
 </body>
 

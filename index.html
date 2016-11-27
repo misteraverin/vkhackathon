@@ -71,7 +71,7 @@
 
                         $.ajax({
                             type: 'POST',
-                            url: "https://vkhackathon.sevazhidkov.me/networks/upload",
+                            url: "https://vkhackathon.sevazhidkov.me/network/upload",
                             data: formData,
                             cache: false,
                             contentType: false,
@@ -260,7 +260,7 @@
             <section class="attach-photo">
                 <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
                 <p class="url">или вы можете <a href="#" id="insertLink">вставить URL-ссылку</a></p>
-                <p class="photo-choosen">Вы выбрали файл: <span id="uploadedPhoto">6hsQGjj0.jpg</span></p>
+                <p class="photo-choosen">Вы выбрали файл: <span id="uploadedPhoto"></span></p>
             </section>
             <p class="url-field">Вставьте URL-ссылку<span class="url-cancel">Отменить</span></p>
             <input class="url-field-text" type="text">

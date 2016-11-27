@@ -43,6 +43,9 @@
                     var date = a.getDate();
                     var hour = a.getHours();
                     var min = a.getMinutes();
+                    if(min.length < 2){
+                        min = "0" + min;
+                    }
                     var ansString = "Размещено: " + date + " " + month  + " " + year + " в " + hour + ":"+ min;
                     console.log(ansString);
                     return ansString;

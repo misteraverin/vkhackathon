@@ -15,158 +15,173 @@
 
     <script type="text/javascript">
         VK.init(function () {
-            /*document.getElementById('body').clientHeight*/
-            VK.callMethod("resizeWindow", 650, 970);
-            $(document).ready(function () {
+                    /*document.getElementById('body').clientHeight*/
+                VK.callMethod("resizeWindow", 650, 970);
+                $(document).ready(function () {
 
 
-                function scaleSize(maxW, maxH, currW, currH) {
+                    function scaleSize(maxW, maxH, currW, currH) {
 
-                    var ratio = currH / currW;
+                        var ratio = currH / currW;
 
-                    if (currW >= maxW && ratio <= 1) {
-                        currW = maxW;
-                        currH = currW * ratio;
-                    } else if (currH >= maxH) {
-                        currH = maxH;
-                        currW = currH / ratio;
+                        if (currW >= maxW && ratio <= 1) {
+                            currW = maxW;
+                            currH = currW * ratio;
+                        } else if (currH >= maxH) {
+                            currH = maxH;
+                            currW = currH / ratio;
+                        }
+
+                        return [currW, currH];
                     }
 
-                    return [currW, currH];
-                }
+                    var globalPhotoOwner = 0;
+                    var globalMediaId = 0;
 
-                var globalPhotoOwner = 0;
-                var globalMediaId = 0;
+                    function timeConverter(UNIX_timestamp) {
+                        var a = new Date(UNIX_timestamp * 1000);
 
-                function timeConverter(UNIX_timestamp){
-                    var a = new Date(UNIX_timestamp * 1000);
-
-                    var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
-                    var year = a.getFullYear();
-                    var month = months[a.getMonth()];
-                    var date = a.getDate();
-                    var hour = a.getHours();
-                    var mins = a.getMinutes();
-                    console.log(mins.length);
-                    if(mins.toString().length < 2){
-                        mins = "0" + mins;
+                        var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+                        var year = a.getFullYear();
+                        var month = months[a.getMonth()];
+                        var date = a.getDate();
+                        var hour = a.getHours();
+                        var mins = a.getMinutes();
+                        console.log(mins.length);
+                        if (mins.toString().length < 2) {
+                            mins = "0" + mins;
+                        }
+                        var ansString = "Размещено: " + date + " " + month + " " + year + " в " + hour + ":" + mins;
+                        console.log(ansString);
+                        return ansString;
                     }
-                    var ansString = "Размещено: " + date + " " + month  + " " + year + " в " + hour + ":"+ mins;
-                    console.log(ansString);
-                    return ansString;
-                }
 
 
-                $('#mainForm').on('submit', (function (e) {
-                    e.preventDefault();
-                    var formData = new FormData(this);
-
-                    $.ajax({
-                        type: 'POST',
-                        url: "https://vkhackathon.sevazhidkov.me/network/upload",
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function (data) {
-                            console.log("success");
-                            var links = JSON.parse(data);
-                            console.log(data);
-                            globalPhotoOwner = links["post"][0].owner_id;
-                            globalMediaId = links["post"][0].id;
-                            var urlLinks = [];
-                            var urlPosts = [];
-                            var dates = [];
-                            var requested_posts = [];
-                            for (var i = 0; i < links["elems"].length; i++) {
-                                urlLinks.push("https://api.rethumb.com/v1/square/280/" + links["elems"][i].url);
-                                var post_id =  links["elems"][i].post_id;
-                                var owner_id = links["elems"][i].owner_id;
-                                urlPosts.push("https://vk.com/wall" + owner_id + "_" + post_id);
-                                console.log("https://vk.com/wall" + owner_id + "_" + post_id);
-                                requested_posts.push(owner_id + "_" + post_id);
-                            }
-                            var i = 0;
-                            $(".uploadPhoto").each(function(){
-                                $(this).attr("src", urlLinks[i]);
-                                i = i + 1;
-                            });
-                            var i = 0;
-                            $(".postLink").each(function(){
-                                $(this).attr("href", urlPosts[i]);
-                                $(this).attr("target", "_blank");
-                                i = i + 1;
-                            });
+                    $('#mainForm').on('submit', (function (e) {
+                        e.preventDefault();
+                        var formData = new FormData(this);
 
 
-                            VK.api('wall.getById', {posts: requested_posts.join(",")}, function (request) {
-                                for(var i = 0; i < request.response.length; i++){
-                                    if(request.response[i] === undefined)
-                                        dates.push(0);
-                                    else {
-                                        var text_date = request.response[i].date;
-                                        console.log(text_date);
-                                        dates.push(timeConverter(text_date));
-                                    }
+                        $.ajax({
+                            type: 'POST',
+                            url: "https://vkhackathon.sevazhidkov.me/network/upload",
+                            data: formData,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success: function (data) {
+                                console.log("success");
+                                var links = JSON.parse(data);
+                                console.log(data);
+                                //globalPhotoOwner = links["post"][0].owner_id;
+                                // globalMediaId = links["post"][0].id;
+                                var urlLinks = [];
+                                var urlPosts = [];
+                                var dates = [];
+                                var requested_posts = [];
+                                for (var i = 0; i < links["elems"].length; i++) {
+                                    urlLinks.push("https://api.rethumb.com/v1/square/280/" + links["elems"][i].url);
+                                    var post_id = links["elems"][i].post_id;
+                                    var owner_id = links["elems"][i].owner_id;
+                                    urlPosts.push("https://vk.com/wall" + owner_id + "_" + post_id);
+                                    console.log("https://vk.com/wall" + owner_id + "_" + post_id);
+                                    requested_posts.push(owner_id + "_" + post_id);
                                 }
-                                var j = 0;
-                                $(".date").each(function(){
-                                    $(this).text(dates[j]);
-                                    j = j + 1;
+                                var i = 0;
+                                $(".uploadPhoto").each(function () {
+                                    $(this).attr("src", urlLinks[i]);
+                                    i = i + 1;
                                 });
-                            });
+                                var i = 0;
+                                $(".postLink").each(function () {
+                                    $(this).attr("href", urlPosts[i]);
+                                    $(this).attr("target", "_blank");
+                                    i = i + 1;
+                                });
 
 
+                                VK.api('wall.getById', {posts: requested_posts.join(",")}, function (request) {
+                                    for (var i = 0; i < request.response.length; i++) {
+                                        if (request.response[i] === undefined)
+                                            dates.push(0);
+                                        else {
+                                            var text_date = request.response[i].date;
+                                            console.log(text_date);
+                                            dates.push(timeConverter(text_date));
+                                        }
+                                    }
+                                    var j = 0;
+                                    $(".date").each(function () {
+                                        $(this).text(dates[j]);
+                                        j = j + 1;
+                                    });
+                                });
 
-                        },
-                        error: function (data) {
-                            console.log("error");
-                            console.log(data);
+
+                            },
+                            error: function (data) {
+                                console.log("error");
+                                console.log(data);
+                            }
+                        });
+                    }));
+
+                    $("#ImageBrowse").on("change", function () {
+                        var size = this.files[0].size;
+                        var nameFile = this.files[0].name;
+                        $("#uploadedPhoto").text(nameFile);
+                        var ext = nameFile.substr((nameFile.lastIndexOf('.') + 1));
+                        if ((ext == 'jpg' || ext == 'jpeg' || ext == 'png' || ext == 'gif' || ext == 'PNG' || ext == 'JPG' || ext == 'JPEG') && size <= 1000000) {
+                            var x = 0;
+                            $(".error").hide();
+                        } else {
+                            $(".error").show();
                         }
                     });
-                }));
 
-                $("#ImageBrowse").on("change", function () {
-
-                });
-
-                $("#choosePhoto").click(function () {
-                    console.log("sucess");
-                    $("#ImageBrowse").click();
-                });
-
-
-
-                $("#startSearch").click(function () {
-                    $("#mainForm").submit();
-                    $("#page1").css("display", "none");
-
-                    VK.callMethod("resizeWindow", 650, 2020);
-                    $("#page2").css("display", "block");
-                });
-
-                $("#submitPost").click(function () {
-                    var message_text =  $(".textarea").text();
-                    var photo_query = "photo" + globalPhotoOwner + "_" + globalMediaId;
-                    console.log(photo_query);
-                    VK.api("wall.post", {
-                        "owner_id": "-133945334",
-                        "message": message_text,
-                        "attachments": photo_query,
-                    }, function (data) {
-                        console.log();
+                    $("#choosePhoto").click(function () {
+                        $("#ImageBrowse").click();
                     });
+
+
+                    $("#startSearch").click(function () {
+                        if ($(".error").css("display") == "block")
+                            return false;
+                        else {
+                            $("#mainForm").submit();
+                            $("#page1").css("display", "none");
+
+                            VK.callMethod("resizeWindow", 650, 2020);
+                            $("#page2").css("display", "block");
+                        }
+                    });
+
+                    $("#submitPost").click(function () {
+                        var message_text = $(".textarea").text();
+                        var photo_query = "photo" + globalPhotoOwner + "_" + globalMediaId;
+                        console.log(photo_query);
+                        VK.api("wall.post", {
+                            "owner_id": "-133945334",
+                            "message": message_text,
+                            "attachments": photo_query,
+                        }, function (data) {
+                            console.log();
+                        });
+                    });
+
+
                 });
 
 
-
-            });
-
-
-        }, function () {
-            // API initialization failed
-            // Can reload page here
-        }, '5.60');
+            },
+            function () {
+                // API initialization failed
+                // Can reload page here
+            }
+            ,
+            '5.60'
+        )
+        ;
     </script>
 
 </head>
@@ -213,29 +228,29 @@
             <section class="attach-photo">
                 <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
                 <p class="url">или вы можете <a href="#">вставить URL-ссылку</a></p>
-                <p class="photo-choosen">Вы выбрали файл: 6hsQGjj0.jpg</p>
+                <p class="photo-choosen">Вы выбрали файл: <span id="uploadedPhoto">6hsQGjj0.jpg</span></p>
             </section>
-            
+
             <p class="url-field">Вставьте URL-ссылку<span class="url-cancel">Отменить</span></p>
         </section>
-        
+
         <script>
-            	$('.url-change').click(function(){
-            		$('.attach-photo').css("display","none");
-            		$('.url-field').css("display","inline-block");
-            		return false;
-            	});
-            	$('.url-cancel').click(function(){
-            		$('.url-field').css("display","none");
-            		$('.attach-photo').css("display","block");
-            		return false;
-            	});
-            </script>
-        
+            $('.url-change').click(function () {
+                $('.attach-photo').css("display", "none");
+                $('.url-field').css("display", "inline-block");
+                return false;
+            });
+            $('.url-cancel').click(function () {
+                $('.url-field').css("display", "none");
+                $('.attach-photo').css("display", "block");
+                return false;
+            });
+        </script>
+
         <section class="error" style="display: none;">
-			<figure class="icon"></figure>
-			<span>Ошибка! Вы не выбрали фотографию</span>
-		</section>
+            <figure class="icon"></figure>
+            <span>Ошибка! Вы не выбрали фотографию</span>
+        </section>
 
         <a href="#" id="startSearch" class="btn-search">
             <figure class="icon"></figure>
@@ -360,7 +375,7 @@
             </article>
         </section>
         <script type="text/javascript">
-            $(document).ready(function(){
+            $(document).ready(function () {
                 $('.textarea').click(function () {
                     $('.placeholder').hide();
                 });

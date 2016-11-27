@@ -131,9 +131,10 @@ h2 {
 .step-block-1 .picture {
     background: url('assets/step1-pic_mobile.svg') no-repeat;
     display: block;
-    float: right;
-    height: 251px;
-    width: 249px;
+    border: 1px solid black;
+    width: 330px;
+    margin: 0 auto;
+    height: 189px;
 }
 
 .step-block-1 .text {
@@ -189,10 +190,10 @@ h2 {
 .step-block-2 .picture {
     background: url('assets/step2-pic_mobile.svg') no-repeat;
     display: block;
-    float: right;
-    height: 94px;
+    clear: both;
+    height: 124px;
     margin: 20px 33px 0 0;
-    width: 204px;
+    width: 270px;
 }
 
 .step-block-2 .text {
@@ -217,7 +218,7 @@ h2 {
     outline: none;
     text-align: center;
     transition: background 0.3s ease-in-out;
-    width: 240px;
+    width: 335px;
 }
 
 .step-block-2 .btn-big:hover {
@@ -253,13 +254,12 @@ h2 {
 }
 
 .step-block-2 .url-field {
-    border-bottom: 1px solid #E7E8EC;
     color: #656565;
     display: none;
     font-size: 14px;
     margin-top: 50px;
     padding-bottom: 20px;
-    width: 580px;
+    width: 270px;
 }
 
 .url-field-text {
@@ -267,7 +267,7 @@ h2 {
     display: none;
     font-size: 14px;
     padding-bottom: 10px;
-    width: 580px;
+    width: 250px;
 }
 
 .step-block-2 .url-cancel {

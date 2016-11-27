@@ -34,7 +34,6 @@ h2 {
 .logo {
     background: url('assets/header-logo_mobile.svg') no-repeat;
     float: left;
-    margin: -20px;
     height: 45px;
     width: 45px;
 }

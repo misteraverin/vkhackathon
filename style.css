@@ -261,7 +261,7 @@ h2 {
   font-size: 14px;
   vertical-align: middle;
 }
-btn-back .icon {
+.btn-back .icon {
   background: url("assets/back.svg") no-repeat 0 1px;
   display: inline-block;
   height: 16px;
@@ -270,7 +270,7 @@ btn-back .icon {
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   vertical-align: middle;
-  width: 6px;
+  width: 8px;
 }
 .btn-back:hover .icon {
   -webkit-transform: translateX(-3px);

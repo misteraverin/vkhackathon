@@ -33,7 +33,19 @@
                     return [currW, currH];
                 }
 
+                function timeConverter(UNIX_timestamp){
+                    var a = new Date(UNIX_timestamp * 1000);
 
+                    var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+                    var year = a.getFullYear();
+                    var month = months[a.getMonth()];
+                    var date = a.getDate();
+                    var hour = a.getHours();
+                    var min = a.getMinutes();
+                    var ansString = "Размещено: " + date + " " + month  + " " + year + " в " + hour + ":"+ min;
+                    console.log(ansString);
+                    return ansString;
+                }
 
 
                 $('#mainForm').on('submit', (function (e) {
@@ -49,27 +61,48 @@
                         processData: false,
                         success: function (data) {
                             console.log("success");
-                            console.log(data);
                             var links = JSON.parse(data);
                             var urlLinks = [];
                             var urlPosts = [];
+                            var dates = [];
+                            var requested_posts = [];
                             for (var i = 0; i < links["elems"].length; i++) {
                                 urlLinks.push("https://api.rethumb.com/v1/square/280/" + links["elems"][i].url);
                                 var post_id =  links["elems"][i].post_id;
                                 var owner_id = links["elems"][i].owner_id;
                                 urlPosts.push("https://vk.com/wall" + owner_id + "_" + post_id);
+                                requested_posts.push(owner_id + "_" + post_id);
                             }
                             var i = 0;
                             $(".uploadPhoto").each(function(){
                                 $(this).attr("src", urlLinks[i]);
                                 i = i + 1;
-                                console.log(i);
                             });
                             var i = 0;
                             $(".postLink").each(function(){
                                 $(this).attr("href", urlPosts[i]);
                                 i = i + 1;
                             });
+
+
+                            VK.api('wall.getById', {posts: requested_posts.join(",")}, function (request) {
+                                for(var i = 0; i < request.response.length; i++){
+                                    if(request.response[i] === undefined)
+                                        dates.push(0);
+                                    else {
+                                        var text_date = request.response[i].date;
+                                        console.log(text_date);
+                                        dates.push(timeConverter(text_date));
+                                    }
+                                }
+                                var j = 0;
+                                $(".date").each(function(){
+                                    $(this).text(dates[j]);
+                                    j = j + 1;
+                                });
+                            });
+
+
 
                         },
                         error: function (data) {

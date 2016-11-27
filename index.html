@@ -61,7 +61,9 @@
                         e.preventDefault();
                         var formData;
                         if ($(".url-field-text").css("display") == "inline-block") {
-                            formData = {url: $(".url-field-text").text()};
+                            var text_from_input = $(".url-field-text").text();
+                            console.log($(".url-field-text").text());
+                            formData = {url: text_from_input};
                         } else {
                             formData = new FormData(this);
                         }

@@ -241,7 +241,7 @@ h2 {
   text-align: center;
 }
 .error .icon {
-  background: url(/assets/error.svg) no-repeat 0 2px;
+  background: url(assets/error.svg) no-repeat 0 2px;
   display: inline-block;
   height: 20px;
   vertical-align: middle;

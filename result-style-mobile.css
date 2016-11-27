@@ -58,6 +58,7 @@ h2 {
   background: url('assets/header-logo.svg') no-repeat;
   display: block;
   height: 64px;
+  margin-left: 25px;
   /* vertical-align: middle; */
   width: 64px;
 }

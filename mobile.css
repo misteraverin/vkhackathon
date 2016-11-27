@@ -35,6 +35,7 @@ h2 {
     background: url('assets/header-logo_mobile.svg') no-repeat;
     display: inline-block;
     height: 45px;
+    margin-left: 25px;
     width: 45px;
 }
 

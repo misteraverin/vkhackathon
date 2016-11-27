@@ -120,7 +120,7 @@
                                     }
                                     var j = 0;
                                     $(".date").each(function () {
-                                        if(j >= dates.length)
+                                        if (j >= dates.length)
                                             $(this).text(timeConverter(1480175188));
                                         else
                                             $(this).text(dates[j]);
@@ -208,7 +208,7 @@
                 $(".url-field-text").css("display", "none");
             });
 
-            $("#back-page").click(function(){
+            $("#back-page").click(function () {
                 $("#page2").css("display", "none");
                 $("#page1").css("display", "block");
             });
@@ -216,15 +216,18 @@
     </script>
 </head>
 <body>
-<div id="page1" style="width: 375px; border: 1px solid black;">
+<div id="page1" style="width: 375px;">
     <main class="container">
 
         <header class="container-header">
-            <figure class="logo"></figure>
-            <p class="header-text">
-                <span class="header-text-l">Поиск пропавших котиков</span>
-                <span class="header-text-s">По фотографии, при помощи технологии нейросетей</span>
-            </p>
+            <img src="assets/header-logo_mobile.svg" >
+            <div class="header-text">
+
+                <p>
+                    <span class="header-text-l">Поиск пропавших котиков</span>
+                    <span class="header-text-s">По фотографии, при помощи технологии нейросетей</span>
+                </p>
+            </div>
         </header>
 
         <section class="step-block step-block-1">
@@ -292,7 +295,9 @@
             </p>
         </header>
 
-        <a id="back-page" class="btn-medium btn-back"><figure class="icon"></figure>Вернуться назад</a>
+        <a id="back-page" class="btn-medium btn-back">
+            <figure class="icon"></figure>
+            Вернуться назад</a>
         <span class="column-header">Вот, что нам удалось найти</span>
 
         <section class="items">

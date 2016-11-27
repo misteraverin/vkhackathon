@@ -33,15 +33,17 @@ h2 {
 
 .logo {
     background: url('assets/header-logo_mobile.svg') no-repeat;
-    display: inline-block;
+    float: left;
+    margin: -20px;
     height: 45px;
-    vertical-align: middle;
     width: 45px;
 }
 
 .container-header {
     border-bottom: 1px solid #E7E8EC;
     padding: 35px;
+    height: 100px;
+    display: table;
 }
 
 .btn-search {
@@ -87,9 +89,8 @@ h2 {
 }
 
 .header-text {
-    display: inline-block;
+    float: right;
     margin-left: 0px;
-    vertical-align: middle;
 }
 
 .header-text-l,
@@ -99,13 +100,13 @@ h2 {
 
 .header-text-l {
     color: #2B2F33;
-    font-size: 15px;
+    font-size: 18px;
     letter-spacing: .4pt;
 }
 
 .header-text-s {
     color: #656565;
-    font-size: 9px;
+    font-size: 15px;
     letter-spacing: .2pt;
     margin-top: 7px;
 }
@@ -131,7 +132,6 @@ h2 {
 .step-block-1 .picture {
     background: url('assets/step1-pic_mobile.svg') no-repeat;
     display: block;
-    border: 1px solid black;
     width: 330px;
     margin: 0 auto;
     height: 189px;

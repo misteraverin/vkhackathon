@@ -17,7 +17,6 @@
         VK.init(function () {
             /*document.getElementById('body').clientHeight*/
             VK.callMethod("resizeWindow", 650, 970);
-            VK.callMethod("showGroupSettingsBox", 0);
             $(document).ready(function () {
 
 
@@ -233,7 +232,7 @@
             	});
             </script>
         
-        <section class="error">
+        <section class="error" style="display: none;">
 			<figure class="icon"></figure>
 			<span>Ошибка! Вы не выбрали фотографию</span>
 		</section>

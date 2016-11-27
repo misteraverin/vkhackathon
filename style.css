@@ -229,11 +229,12 @@ h2 {
 }
 
 .url-field-text{
+  border-radius: 2px;
   color: #656565;
   display: none;
   font-size: 14px;
   padding-bottom: 10px;
-  outline: none;
+  outline: 0;
   width: 580px;
 }
 

@@ -34,6 +34,9 @@
                     return [currW, currH];
                 }
 
+                var globalPhotoOwner = 0;
+                var globalMediaId = 0;
+
                 function timeConverter(UNIX_timestamp){
                     var a = new Date(UNIX_timestamp * 1000);
 
@@ -67,6 +70,9 @@
                         success: function (data) {
                             console.log("success");
                             var links = JSON.parse(data);
+                            console.log(data);
+                            globalPhotoOwner = links["post"][0].owner_id;
+                            globalMediaId = links["post"][0].id;
                             var urlLinks = [];
                             var urlPosts = [];
                             var dates = [];
@@ -136,6 +142,20 @@
 
                     VK.callMethod("resizeWindow", 650, 2020);
                     $("#page2").css("display", "block");
+                });
+
+                $("#submitPost").click(function () {
+
+                    var photo_query = "photo" + globalPhotoOwner + "_" + globalMediaId;
+                    VK.api("wall.post", {
+                        "owner_id": "-133945334",
+                        "message": "fsdfsdfs",
+                        "from_group": "1",
+                        "signed": "1",
+                        "attachments": photo_query,
+                    }, function (data) {
+                        console.log();
+                    });
                 });
 
 
@@ -328,13 +348,13 @@
         <section class="post">
             <arctile class="field">
                 <div class="textarea" contenteditable="true"></div>
-                <div class="placeholder">Напишите о пропавшем котике...</div>
+                <!--<div class="placeholder">Напишите о пропавшем котике...</div>-->
             </arctile>
 
             <article class="field-controls">
                 <figure class="pet-photo"></figure>
                 <span class="text">Фотография, которую вы загрузили,<br>прикладывается к посту.</span>
-                <button class="btn-medium suggest-post">Предложить пост</button>
+                <button id="submitPost" class="btn-medium suggest-post">Предложить пост</button>
             </article>
         </section>
         <script type="text/javascript">

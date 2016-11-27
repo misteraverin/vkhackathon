@@ -43,10 +43,9 @@
                     var date = a.getDate();
                     var hour = a.getHours();
                     var mins = a.getMinutes();
-                    console.log(mins);
-                    if(mins.length < 2){
+                    console.log(mins.length);
+                    if(mins.toString().length < 2){
                         mins = "0" + mins;
-                        console.log(mins);
                     }
                     var ansString = "Размещено: " + date + " " + month  + " " + year + " в " + hour + ":"+ mins;
                     console.log(ansString);
@@ -77,6 +76,7 @@
                                 var post_id =  links["elems"][i].post_id;
                                 var owner_id = links["elems"][i].owner_id;
                                 urlPosts.push("https://vk.com/wall" + owner_id + "_" + post_id);
+                                console.log("https://vk.com/wall" + owner_id + "_" + post_id);
                                 requested_posts.push(owner_id + "_" + post_id);
                             }
                             var i = 0;
@@ -87,6 +87,7 @@
                             var i = 0;
                             $(".postLink").each(function(){
                                 $(this).attr("href", urlPosts[i]);
+                                $(this).attr("target", "_blank");
                                 i = i + 1;
                             });
 

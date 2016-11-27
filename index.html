@@ -233,7 +233,7 @@
         </header>
 
         <button class="btn-medium btn-load-new">Загрузить другое фото</button>
-        <span class="column-header">Вот, что нам удалось найти:</span>
+        <span class="column-header">Вот, что нам удалось найти</span>
 
         <section class="items">
 
@@ -318,25 +318,25 @@
             </article>
         </section>
 
-        <span class="column-header">Не нашли своего питомца? Давайте создадим пост:</span>
-
         <section class="post">
             <arctile class="field">
                 <div class="textarea" contenteditable="true"></div>
                 <div class="placeholder">Напишите о пропавшем котике...</div>
             </arctile>
 
-            <button class="btn-medium suggest-post">Предложить пост</button>
-            <figure class="pet-photo"></figure>
-            <span class="text">Фотография, которую вы загрузили,<br>прикладывается к посту.</span>
+            <article class="field-controls">
+                <figure class="pet-photo"></figure>
+                <span class="text">Фотография, которую вы загрузили,<br>прикладывается к посту.</span>
+                <button class="btn-medium suggest-post">Предложить пост</button>
+            </article>
         </section>
         <script type="text/javascript">
-            $('.textarea').click(function () {
+            $('.textarea').click(function() {
                 $('.placeholder').hide();
                 return false;
                 $('.textarea').focus();
             });
-            $('body').click(function () {
+            $('body').click(function() {
                 $('.placeholder').show();
             });
         </script>

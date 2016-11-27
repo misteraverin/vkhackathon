@@ -34,14 +34,12 @@ h2 {
 .logo {
     background: url('assets/header-logo_mobile.svg') no-repeat;
     height: 45px;
-    float: left;
     width: 45px;
 }
 
 .container-header {
     border-bottom: 1px solid #E7E8EC;
     padding: 20px;
-    height: 200px;
     display: block;
 }
 
@@ -97,8 +95,8 @@ h2 {
 }
 
 .header-text-l {
-    color: red;
-    font-size: 17px;
+    color: #2B2F33;
+    font-size: 16px;
     letter-spacing: .4pt;
 }
 

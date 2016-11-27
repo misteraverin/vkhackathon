@@ -71,7 +71,7 @@
 
                         $.ajax({
                             type: 'POST',
-                            url: "https://63ec4b9a.ngrok.io/upload",
+                            url: "https://vkhackathon.sevazhidkov.me/networks/upload",
                             data: formData,
                             cache: false,
                             contentType: false,
@@ -208,6 +208,11 @@
                 $(".url-field").css("display", "none");
                 $(".url-field-text").css("display", "none");
             });
+
+            $("#back-page").click(function(){
+                $("#page2").css("display", "none");
+                $("#page1").css("display", "block");
+            });
         });
     </script>
 
@@ -289,7 +294,7 @@
             </p>
         </header>
 
-        <button class="btn-medium btn-load-new">Загрузить другое фото</button>
+        <a id="back-page" class="btn-medium btn-back"><figure class="icon"></figure>Вернуться назад</a>
         <span class="column-header">Вот, что нам удалось найти</span>
 
         <section class="items">

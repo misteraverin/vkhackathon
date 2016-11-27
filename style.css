@@ -201,6 +201,11 @@ h2 {
   background: #6693cf;
   cursor: pointer;
 }
+.step-block-2 .photo-choosen {
+  color: #656565;
+  font-size: 14px;
+  margin-top: 15px;
+}
 .step-block-2 .url {
   color: #656565;
   display: inline-block;
@@ -213,4 +218,37 @@ h2 {
 }
 .step-block-2 .url a:hover {
   text-decoration: underline;
+}
+.step-block-2 .url-field {
+  border-bottom: 1px solid #E7E8EC;
+  color: #656565;
+  display: none;
+  font-size: 14px;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  width: 580px;
+}
+.step-block-2 .url-cancel {
+  color: #5879A6;
+  float: right;
+}
+.step-block-2 .url-cancel:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.error {
+  padding: 20px 0;
+  text-align: center;
+}
+.error .icon {
+  background: url(/assets/error.svg) no-repeat 0 2px;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 20px;
+}
+.error span {
+  color: #EC4A2F;
+  font-size: 14px;
+  vertical-align: middle;
 }

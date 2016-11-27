@@ -17,6 +17,7 @@ body {
 }
 body {
   background: #fff;
+  width: 650px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 h2 {
@@ -50,7 +51,7 @@ h2 {
   cursor: pointer;
 }
 .header-logo {
-  background: url('assets/header-logo.svg') no-repeat;
+  background: url('/assets/header-logo.svg') no-repeat;
   display: inline-block;
   height: 64px;
   vertical-align: middle;
@@ -127,7 +128,7 @@ h2 {
   vertical-align: middle;
 }
 .item a .icon {
-  background: url("assets/post-link.svg") no-repeat;
+  background: url("/assets/post-link.svg") no-repeat;
   display: inline-block;
   height: 10px;
   margin-left: 10px;

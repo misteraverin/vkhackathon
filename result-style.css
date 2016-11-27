@@ -183,29 +183,31 @@ h2 {
   top: -33px;
   width: 250px;
 }
-.post .btn-medium {
+.post .field-controls {
   margin-top: 25px;
+}
+.post .field-controls .btn-medium {
+  float: right;
   vertical-align: bottom;
   width: 180px;
 }
-.post .btn-medium:hover {
+.post .field-controls .btn-medium:hover {
   background: #7ea3d7;
   cursor: pointer;
 }
-.post .btn-medium:active {
+.post .field-controls .btn-medium:active {
   background: #6693cf;
   cursor: pointer;
 }
-.post .pet-photo {
+.post .field-controls .pet-photo {
   background: #E7E8EC;
   display: inline-block;
   border-radius: 3px;
   height: 40px;
-  margin-left: 20px;
   vertical-align: middle;
   width: 40px;
 }
-.post .text {
+.post .field-controls .text {
   color: #656565;
   display: inline-block;
   font-size: 14px;

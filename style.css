@@ -233,6 +233,7 @@ h2 {
   display: none;
   font-size: 14px;
   padding-bottom: 10px;
+  outline: none;
   width: 580px;
 }
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>3Bots</title>
+    <title>Поиск пропавших питомцев</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
     <link rel="stylesheet" href="result-style.css">
@@ -183,9 +183,32 @@
                 Выберите самую качественную фотографию, на которой был запечатлён ваш котик.
                 <br> Чем лучше фото – тем выше шанс найти именно вашего питомца.
             </p>
-            <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
-            <p class="url">или вы можете <a href="#">вставить URL-ссылку</a></p>
+            <section class="attach-photo">
+                <button id="choosePhoto" class="btn-big">Выбрать фотографию</button>
+                <p class="url">или вы можете <a href="#">вставить URL-ссылку</a></p>
+                <p class="photo-choosen">Вы выбрали файл: 6hsQGjj0.jpg</p>
+            </section>
+            
+            <p class="url-field">Вставьте URL-ссылку<span class="url-cancel">Отменить</span></p>
         </section>
+        
+        <script>
+            	$('.url-change').click(function(){
+            		$('.attach-photo').css("display","none");
+            		$('.url-field').css("display","inline-block");
+            		return false;
+            	});
+            	$('.url-cancel').click(function(){
+            		$('.url-field').css("display","none");
+            		$('.attach-photo').css("display","block");
+            		return false;
+            	});
+            </script>
+        
+        <section class="error">
+			<figure class="icon"></figure>
+			<span>Ошибка! Вы не выбрали фотографию</span>
+		</section>
 
         <a href="#" id="startSearch" class="btn-search">
             <figure class="icon"></figure>

@@ -261,3 +261,19 @@ h2 {
   font-size: 14px;
   vertical-align: middle;
 }
+btn-back .icon {
+  background: url("assets/back.svg") no-repeat 0 1px;
+  display: inline-block;
+  height: 16px;
+  margin-right: 10px;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  vertical-align: middle;
+  width: 6px;
+}
+.btn-back:hover .icon {
+  -webkit-transform: translateX(-3px);
+      -ms-transform: translateX(-3px);
+          transform: translateX(-3px);
+}

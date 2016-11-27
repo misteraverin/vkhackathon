@@ -33,7 +33,6 @@ h2 {
 
 .logo {
     background: url('assets/header-logo_mobile.svg') no-repeat;
-    float: left;
     height: 45px;
     width: 45px;
 }
@@ -41,8 +40,8 @@ h2 {
 .container-header {
     border-bottom: 1px solid #E7E8EC;
     padding: 20px;
-    height: 100px;
-    display: table;
+    height: 150px;
+    display: block;
 }
 
 .btn-search {

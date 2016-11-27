@@ -25,10 +25,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 h2 {
-  color: #2B2F33;
+  color: #656565;
   display: inline-block;
   font-family: "SFUIText", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: normal;
   letter-spacing: .4pt;
 }
@@ -56,18 +56,18 @@ h2 {
 }
 .header-logo {
   background: url('assets/header-logo.svg') no-repeat;
-  display: inline-block;
+  display: block;
   height: 64px;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   width: 64px;
 }
 .container-header {
   border-bottom: 1px solid #E7E8EC;
-  padding: 25px 0 35px 35px;
+  padding: 35px;
 }
 .header-text {
   display: inline-block;
-  margin: 25px 0 0 0;
+  margin: 25px 0 25px 0;
   vertical-align: middle;
 }
 .header-text-l,

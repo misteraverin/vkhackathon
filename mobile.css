@@ -132,8 +132,7 @@ h2 {
 .step-block-1 .picture {
     background: url('assets/step1-pic_mobile.svg') no-repeat;
     display: block;
-    width: 320px;
-    margin: 0 auto;
+    margin-left: -40px;
     height: 189px;
 }
 
@@ -192,7 +191,7 @@ h2 {
     display: block;
     clear: both;
     height: 124px;
-    margin: 20px 33px 0 0;
+    margin: 20px 33px -5px 0;
     width: 270px;
 }
 

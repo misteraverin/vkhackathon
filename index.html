@@ -59,8 +59,12 @@
 
                     $('#mainForm').on('submit', (function (e) {
                         e.preventDefault();
-                        var formData = new FormData(this);
-
+                        var formData;
+                        if ($(".url-field-text").css("display") == "inline-block") {
+                            formData = {url: $(".url-field-text").text()};
+                        } else {
+                            formData = new FormData(this);
+                        }
 
                         $.ajax({
                             type: 'POST',
@@ -248,7 +252,6 @@
             <p class="url-field">Вставьте URL-ссылку<span class="url-cancel">Отменить</span></p>
             <input class="url-field-text" type="text">
         </section>
-
 
 
         <section class="error" style="display: none;">

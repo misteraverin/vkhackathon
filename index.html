@@ -17,8 +17,10 @@
         VK.init(function () {
             /*document.getElementById('body').clientHeight*/
             VK.callMethod("resizeWindow", 650, 970);
-            /* VK.callMethod("showSettingsBox", 8192);*/
+             VK.callMethod("showSettingsBox", 8192);
             $(document).ready(function () {
+
+
                 function scaleSize(maxW, maxH, currW, currH) {
 
                     var ratio = currH / currW;
@@ -345,6 +347,8 @@
                 </a>
             </article>
         </section>
+
+        <span class="column-header">Не нашли своего питомца? Давайте создадим пост:</span>
 
         <section class="post">
             <arctile class="field">

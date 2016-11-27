@@ -339,3 +339,31 @@ h2 {
   display: inline-block;
   font-size: 16px;
   margin-top: 15px;
+}
+
+/* Back */
+
+.btn-back {
+  float: right;
+  margin: 25px 35px 0 0;
+  line-height: 40px;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 190px;
+}
+.btn-back .icon {
+  background: url(assets/back.svg) no-repeat 0 1px;
+  display: inline-block;
+  height: 16px;
+  margin-right: 10px;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  vertical-align: middle;
+  width: 6px;
+}
+.btn-back:hover .icon {
+  -webkit-transform: translateX(-3px);
+      -ms-transform: translateX(-3px);
+          transform: translateX(-3px);
+}
